@@ -27,7 +27,7 @@ router.put("/new", requiresAuth(), (req, res) => {
     })
 })
 
-router.put("/update", requiresAuth, (req, res) => {
+router.put("/update", requiresAuth(), (req, res) => {
     db.updateUser(req.body.username, req.body.age, req.body.realName, req.body.newUsername, req.body.newAge, req.body.newRealName, (err, body) => {
         if (err) {
             res.sendStatus(500)

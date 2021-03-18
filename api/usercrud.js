@@ -15,12 +15,34 @@ router.get("/:username", requiresAuth(), (req, res) => {
     })
 })
 
-router.post("/new", requiresAuth, (req, res) => {
+router.put("/new", requiresAuth(), (req, res) => {
     db.newUser(req.body.username, req.body.age, req.body.realName, (err, data) => {
         if (err) {
             console.log(err)
             res.sendStatus(500)
             res.send("something broke")
+        } else {
+            res.send("success")
+        }
+    })
+})
+
+router.put("/update", requiresAuth, (req, res) => {
+    db.updateUser(req.body.username, req.body.age, req.body.realName, req.body.newUsername, req.body.newAge, req.body.newRealName, (err, body) => {
+        if (err) {
+            res.sendStatus(500)
+            res.send("something went wrong")
+        } else {
+            res.send("success")
+        }
+    })
+})
+
+router.delete("/delete", requiresAuth(), (req, res) {
+    db.deleteUser(req.username, (err) => {
+        if (err) {
+            res.sendStatus(500)
+            res.send("something went wrong")
         } else {
             res.send("success")
         }

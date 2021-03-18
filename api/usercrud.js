@@ -38,7 +38,7 @@ router.put("/update", requiresAuth(), (req, res) => {
     })
 })
 
-router.delete("/delete", requiresAuth(), (req, res) {
+router.delete("/delete", requiresAuth(), (req, res) => {
     db.deleteUser(req.username, (err) => {
         if (err) {
             res.sendStatus(500)

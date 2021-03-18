@@ -1,0 +1,27 @@
+{
+  "name": "nodejs-crudapp",
+  "version": "1.0.0",
+  "description": "a crudapp in nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "node bin/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matthewzhaocc/nodejs-crudapp.git"
+  },
+  "author": "Matthew Zhao",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/matthewzhaocc/nodejs-crudapp/issues"
+  },
+  "homepage": "https://github.com/matthewzhaocc/nodejs-crudapp#readme",
+  "dependencies": {
+    "aws-sdk": "^2.866.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-openid-connect": "^2.3.0",
+    "morgan": "^1.10.0"
+  }
+}

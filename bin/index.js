@@ -9,7 +9,7 @@ app = express()
 app.use(morgan("common"))
 
 // import authN module
-app.use(require("../lib/auth").auth)
+//app.use(require("../lib/auth").auth)
 // infra router
 app.use("/sys/", require("../api/infra").infraRouter)
 // user crud router

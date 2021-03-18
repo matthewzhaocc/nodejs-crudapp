@@ -16,6 +16,11 @@ router.get("/:username", requiresAuth(), (req, res) => {
 })
 
 router.put("/new", requiresAuth(), (req, res) => {
+    if (!req.body.username|| !req.body.age || !req.body.realName) {
+        res.send("not enough inputs")
+        res.sendStatus(400)
+        return
+    }
     db.newUser(req.body.username, req.body.age, req.body.realName, (err, data) => {
         if (err) {
             console.log(err)
@@ -28,8 +33,9 @@ router.put("/new", requiresAuth(), (req, res) => {
 })
 
 router.put("/update", requiresAuth(), (req, res) => {
-    db.updateUser(req.body.username, req.body.age, req.body.realName, req.body.newUsername, req.body.newAge, req.body.newRealName, (err, body) => {
+    db.updateUser(req.body.username, req.body.newAge, req.body.newRealName, (err, body) => {
         if (err) {
+            console.log(err)
             res.sendStatus(500)
             res.send("something went wrong")
         } else {
@@ -39,7 +45,7 @@ router.put("/update", requiresAuth(), (req, res) => {
 })
 
 router.delete("/delete", requiresAuth(), (req, res) => {
-    db.deleteUser(req.username, (err) => {
+    db.deleteUser(req.body.username, (err) => {
         if (err) {
             res.sendStatus(500)
             res.send("something went wrong")

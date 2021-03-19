@@ -7,6 +7,7 @@ require('dotenv').config()
 
 const app = express()
 app.use(morgan('common'))
+// use prometheus for stats
 
 // import authN module
 // app.use(require('../lib/auth').auth)
